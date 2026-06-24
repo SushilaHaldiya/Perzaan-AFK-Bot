@@ -8,7 +8,8 @@
   "server": {
     "ip": "serverofpros.play.hosting",
     "port": 25565,
-    "version": "1.21.11"
+    "version": "1.21.11",
+    "try-creative": true
   },
   "position": {
     "enabled": true,
