@@ -417,6 +417,25 @@ function createBot() {
           bot.chat('/gamerule sendCommandFeedback false');
         }
       }, 3000);
+
+      // Attempt creative mode (only works if bot has OP)
+      setTimeout(() => {
+        if (bot && botState.connected) {
+          bot.chat('/gamemode creative');
+          console.log('[INFO] Attempted to set creative mode (requires OP)');
+        }
+      }, 3000);
+
+      bot.on('messagestr', (message) => {
+        if (
+          message.includes('commands.gamemode.success.self') ||
+          message.includes('Set own game mode to Creative Mode')
+        ) {
+          console.log('[INFO] Bot is now in Creative Mode.');
+           
+          bot.chat('/gamerule sendCommandFeedback false');
+          
+        }
       });
     });
 
