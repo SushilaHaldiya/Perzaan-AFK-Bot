@@ -418,20 +418,20 @@ function createBot() {
         }
       }, 3000);
 
-      // Attempt creative mode (only works if bot has OP)
+      // Attempt spectator mode (only works if bot has OP)
       setTimeout(() => {
         if (bot && botState.connected) {
-          bot.chat('/gamemode creative');
-          console.log('[INFO] Attempted to set creative mode (requires OP)');
+          bot.chat('/gamemode spectator');
+          console.log('[INFO] Attempted to set spectator mode (requires OP)');
         }
       }, 3000);
 
       bot.on('messagestr', (message) => {
         if (
           message.includes('commands.gamemode.success.self') ||
-          message.includes('Set own game mode to Creative Mode')
+          message.includes('Set own game mode to Spectator Mode')
         ) {
-          console.log('[INFO] Bot is now in Creative Mode.');
+          console.log('[INFO] Bot is now in Spectator Mode.');
            
           bot.chat('/gamerule sendCommandFeedback false');
           
